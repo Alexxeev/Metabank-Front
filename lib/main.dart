@@ -8,16 +8,12 @@ void main() {
   runApp(const MyApp());
 }
 
-const String baseUrl =
-    String.fromEnvironment('BASE_URL', defaultValue: 'http://localhost:8080');
+const String baseUrl = 'base_url_template';
 
 class CustomScrollBehavior extends MaterialScrollBehavior {
-  
   @override
-  Set<PointerDeviceKind> get dragDevices => {
-    PointerDeviceKind.mouse,
-    PointerDeviceKind.touch
-  };
+  Set<PointerDeviceKind> get dragDevices =>
+      {PointerDeviceKind.mouse, PointerDeviceKind.touch};
 }
 
 class MyApp extends StatelessWidget {
