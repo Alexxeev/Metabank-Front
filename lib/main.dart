@@ -8,7 +8,7 @@ void main() {
   runApp(const MyApp());
 }
 
-const String baseUrl = 'base_url_template';
+const String baseUrl = 'http://base_url_template';
 
 class CustomScrollBehavior extends MaterialScrollBehavior {
   @override
