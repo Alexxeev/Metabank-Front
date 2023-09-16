@@ -1,4 +1,8 @@
 # Miscellaneous
+.stfolder/
+.stversions/
+.stignore
+*.env
 *.class
 *.log
 *.pyc
