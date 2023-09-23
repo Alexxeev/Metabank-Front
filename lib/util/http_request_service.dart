@@ -26,6 +26,22 @@ class HttpRequestService {
     return returnResponse(response);
   }
 
+  Future<String> postMultipartFile(
+      {required String url,
+      required Stream<List<int>> byteStream,
+      required int length,
+      required String fileName}) async {
+    final uri = Uri.parse(baseUrl + url);
+    final request = http.MultipartRequest('POST', uri);
+    final stream = http.ByteStream(byteStream);
+    final file =
+        http.MultipartFile('database', stream, length, filename: fileName);
+    request.files.add(file);
+    final streamedResponse = await request.send();
+    final response = await http.Response.fromStream(streamedResponse);
+    return returnResponse(response);
+  }
+
   Future<String> delete({required String url}) async {
     final uri = Uri.parse(baseUrl + url);
     final response = await http.delete(uri, headers: contentTypeJson);
