@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 typedef QueryResultRow = Map<String, dynamic>;
@@ -18,10 +17,10 @@ class PageResponseModel {
 
   factory PageResponseModel.fromMap(Map<String, dynamic> data) {
     final rows = data['rows'] as Iterable;
-    final castedRows = List<QueryResultRow>.from(rows.map((row) => row as QueryResultRow));
+    final castedRows =
+        List<QueryResultRow>.from(rows.map((row) => row as QueryResultRow));
     return PageResponseModel(
-        rows: castedRows,
-        totalRows: data['totalRows'] as int);
+        rows: castedRows, totalRows: data['totalRows'] as int);
   }
 
   factory PageResponseModel.fromJson(String data) {
