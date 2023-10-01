@@ -5,20 +5,28 @@ import 'package:meta/meta.dart';
 @immutable
 class DatabaseConnectionRequest {
   final String? url;
+  final String? username;
+  final String? password;
 
-  const DatabaseConnectionRequest({this.url});
+  const DatabaseConnectionRequest({this.url, this.username, this.password});
 
   @override
-  String toString() => 'DatabaseConnectionRequest(url: $url)';
+  String toString() {
+    return 'DatabaseConnectionRequest(url: $url, username: $username, password: $password)';
+  }
 
   factory DatabaseConnectionRequest.fromMap(Map<String, dynamic> data) {
     return DatabaseConnectionRequest(
       url: data['url'] as String?,
+      username: data['username'] as String?,
+      password: data['password'] as String?,
     );
   }
 
   Map<String, dynamic> toMap() => {
         'url': url,
+        'username': username,
+        'password': password,
       };
 
   /// `dart:convert`
