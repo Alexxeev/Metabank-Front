@@ -19,7 +19,8 @@ abstract class MetadataRepository {
   Future<PageResponseModel> queryPage({required PageQueryModel queryModel});
   Future<void> saveQuery({required PageQueryModel queryModel});
   Future<PageQueryModelList> findAllPageQueries();
-  Future<ColumnModelList> findColumnsByColumnIds({required List<int> columnIds});
+  Future<ColumnModelList> findColumnsByColumnIds(
+      {required List<int> columnIds});
 }
 
 class MetadataRepositoryImpl implements MetadataRepository {
@@ -73,8 +74,10 @@ class MetadataRepositoryImpl implements MetadataRepository {
   }
 
   @override
-  Future<ColumnModelList> findColumnsByColumnIds({required List<int> columnIds}) async {
-    final responseJson = await _requestService.post(url: "/columns", bodyJson: jsonEncode(columnIds));
+  Future<ColumnModelList> findColumnsByColumnIds(
+      {required List<int> columnIds}) async {
+    final responseJson = await _requestService.post(
+        url: "/columns", bodyJson: jsonEncode(columnIds));
     return ColumnModelList.fromJson(responseJson);
   }
 
@@ -88,8 +91,7 @@ class MetadataRepositoryImpl implements MetadataRepository {
 
   @override
   Future<void> saveQuery({required PageQueryModel queryModel}) async {
-    await _requestService.post(
-        url: "/archive", bodyJson: queryModel.toJson());
+    await _requestService.post(url: "/archive", bodyJson: queryModel.toJson());
   }
 
   @override

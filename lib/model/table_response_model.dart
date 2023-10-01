@@ -25,8 +25,7 @@ class TableModel {
   ///
   /// Parses the string and returns the resulting Json object as [TableModel].
   factory TableModel.fromJson(String data) {
-    return TableModel.fromMap(
-        json.decode(data) as Map<String, dynamic>);
+    return TableModel.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`
@@ -48,4 +47,3 @@ class TableModelList {
 
   factory TableModelList.empty() => TableModelList(tables: List.empty());
 }
-

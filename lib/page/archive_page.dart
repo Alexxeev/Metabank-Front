@@ -4,7 +4,7 @@ import 'package:metabank_front/widget/page_query_datatable.dart';
 
 class ArchivePage extends StatelessWidget {
   const ArchivePage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,12 +13,9 @@ class ArchivePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            GetIt.I.get<PageQueryDataTable>()
-          ],
+          children: [GetIt.I.get<PageQueryDataTable>()],
         ),
       ),
     );
   }
-
 }

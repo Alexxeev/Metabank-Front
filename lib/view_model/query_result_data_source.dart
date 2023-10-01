@@ -8,8 +8,7 @@ import 'package:metabank_front/view_model/current_page.dart';
 import 'package:metabank_front/view_model/database_id_updater.dart';
 import 'package:metabank_front/view_model/table_id_updater.dart';
 
-class QueryResultDataSource
-    extends AdvancedDataTableSource<QueryResultRow> {
+class QueryResultDataSource extends AdvancedDataTableSource<QueryResultRow> {
   QueryResultDataSource(
     this._metadataRepository,
   );
@@ -20,15 +19,14 @@ class QueryResultDataSource
   Future<RemoteDataSourceDetails<QueryResultRow>> getNextPage(
       NextPageRequest pageRequest) async {
     final queryModel = PageQueryModel(
-            databaseId: CurrentDatabaseId.instance.lastUpdate,
-            tableId: CurrentTableId.instance.lastUpdate,
-            columnIds: CurrentColumnList.instance.lastUpdate
-                ?.map((column) => column.id!)
-                .toList(),
-            numberOfElements: pageRequest.pageSize,
-            offset: pageRequest.offset);
-    final page = await _metadataRepository.queryPage(
-        queryModel: queryModel);
+        databaseId: CurrentDatabaseId.instance.lastUpdate,
+        tableId: CurrentTableId.instance.lastUpdate,
+        columnIds: CurrentColumnList.instance.lastUpdate
+            ?.map((column) => column.id!)
+            .toList(),
+        numberOfElements: pageRequest.pageSize,
+        offset: pageRequest.offset);
+    final page = await _metadataRepository.queryPage(queryModel: queryModel);
     CurrentPage.instance.update(queryModel);
     return RemoteDataSourceDetails(page.totalRows, page.rows);
   }

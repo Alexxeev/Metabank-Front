@@ -22,9 +22,10 @@ class QueryResultDataTable extends StatelessWidget {
             showHorizontalScrollbarAlways: true,
             loadingWidget: () => const CircularProgressIndicator(),
             errorWidget: () => const Text('Error loading data'),
-            rowsPerPage: pageSnapshot.data ?? AdvancedPaginatedDataTable.defaultRowsPerPage,
-            onRowsPerPageChanged: (value) =>
-                CurrentPageSize.instance.update(value ?? AdvancedPaginatedDataTable.defaultRowsPerPage),
+            rowsPerPage: pageSnapshot.data ??
+                AdvancedPaginatedDataTable.defaultRowsPerPage,
+            onRowsPerPageChanged: (value) => CurrentPageSize.instance
+                .update(value ?? AdvancedPaginatedDataTable.defaultRowsPerPage),
           );
         });
   }

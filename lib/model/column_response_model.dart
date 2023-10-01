@@ -25,8 +25,7 @@ class ColumnModel {
   ///
   /// Parses the string and returns the resulting Json object as [ColumnModel].
   factory ColumnModel.fromJson(String data) {
-    return ColumnModel.fromMap(
-        json.decode(data) as Map<String, dynamic>);
+    return ColumnModel.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`

@@ -15,22 +15,21 @@ void setupLocator() {
   GetIt.I.registerSingleton<MetadataRepository>(
       MetadataRepositoryImpl(GetIt.I.get<HttpRequestService>()));
   GetIt.I.registerSingleton<QueryResultDataSource>(
-    QueryResultDataSource(GetIt.I.get<MetadataRepository>())
-  );
-  
+      QueryResultDataSource(GetIt.I.get<MetadataRepository>()));
+
   GetIt.I.registerFactory<ColumnDataTable>(
       () => ColumnDataTable(GetIt.I.get<MetadataRepository>()));
   GetIt.I.registerFactory<PageQueryDataTable>(
       () => PageQueryDataTable(GetIt.I.get<MetadataRepository>()));
   GetIt.I.registerFactory<QueryResultDataTable>(
-    () => QueryResultDataTable(GetIt.I.get<QueryResultDataSource>()));
+      () => QueryResultDataTable(GetIt.I.get<QueryResultDataSource>()));
 
   GetIt.I.registerFactory<DatabaseDropDownButton>(
       () => DatabaseDropDownButton(GetIt.I.get<MetadataRepository>()));
   GetIt.I.registerFactory<TableDropDownButton>(
       () => TableDropDownButton(GetIt.I.get<MetadataRepository>()));
   GetIt.I.registerFactory<ConnectToDatabaseButton>(
-    () => ConnectToDatabaseButton(GetIt.I.get<MetadataRepository>()));
+      () => ConnectToDatabaseButton(GetIt.I.get<MetadataRepository>()));
   GetIt.I.registerFactory<SaveQueryButton>(
-    () => SaveQueryButton(GetIt.I.get<MetadataRepository>()));
+      () => SaveQueryButton(GetIt.I.get<MetadataRepository>()));
 }
