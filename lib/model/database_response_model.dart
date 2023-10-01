@@ -28,11 +28,8 @@ class DatabaseModel {
   ///
   /// Parses the string and returns the resulting Json object as [DatabaseModel].
   factory DatabaseModel.fromJson(String data) {
-    return DatabaseModel.fromMap(
-        json.decode(data) as Map<String, dynamic>);
+    return DatabaseModel.fromMap(json.decode(data) as Map<String, dynamic>);
   }
-
-  
 
   /// `dart:convert`
   ///

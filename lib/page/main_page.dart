@@ -22,8 +22,8 @@ class MainPage extends StatelessWidget {
         title: const Text('Database connection'),
         actions: [
           TextButton(
-            onPressed: () => _pushArhivePage(context), 
-            child: const Text('ARCHIVE')),
+              onPressed: () => _pushArhivePage(context),
+              child: const Text('ARCHIVE')),
           StreamBuilder<int>(
               stream: CurrentTableId.instance.onChange,
               builder: (tableContext, tableSnapshot) {
@@ -117,6 +117,6 @@ class MainPage extends StatelessWidget {
 
   void _pushArhivePage(BuildContext context) {
     Navigator.push(
-      context, MaterialPageRoute(builder: (_) => const ArchivePage()));
+        context, MaterialPageRoute(builder: (_) => const ArchivePage()));
   }
 }

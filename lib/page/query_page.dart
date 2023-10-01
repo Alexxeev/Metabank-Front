@@ -14,13 +14,9 @@ class QueryPage extends StatelessWidget {
         leading: const BackButton(),
       ),
       body: SingleChildScrollView(
-        child: Column(
-        children: [
-          GetIt.I.get<QueryResultDataTable>()
-        ]),
+        child: Column(children: [GetIt.I.get<QueryResultDataTable>()]),
       ),
       floatingActionButton: GetIt.I.get<SaveQueryButton>(),
     );
   }
-
 }

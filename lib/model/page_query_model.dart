@@ -11,24 +11,22 @@ class PageQueryModel {
   final int? numberOfElements;
   final int? offset;
 
-  const PageQueryModel({
-    this.databaseId,
-    this.tableId,
-    this.columnIds,
-    this.numberOfElements,
-    this.offset
-  });
+  const PageQueryModel(
+      {this.databaseId,
+      this.tableId,
+      this.columnIds,
+      this.numberOfElements,
+      this.offset});
 
   factory PageQueryModel.fromMap(Map<String, dynamic> data) {
     final list = data['columnIds'] as List?;
     final parsedList = list?.map((e) => e as int).toList();
     return PageQueryModel(
-      databaseId: data['databaseId'] as int?,
-      tableId: data['tableId'] as int?,
-      columnIds: parsedList,
-      numberOfElements: data['numberOfElements'] as int?,
-      offset: data['offset'] as int?
-    );
+        databaseId: data['databaseId'] as int?,
+        tableId: data['tableId'] as int?,
+        columnIds: parsedList,
+        numberOfElements: data['numberOfElements'] as int?,
+        offset: data['offset'] as int?);
   }
 
   Map<String, dynamic> toMap() => {

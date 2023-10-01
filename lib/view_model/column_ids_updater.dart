@@ -7,8 +7,7 @@ class CurrentColumnList with StreamMixin<List<ColumnModel>> {
   static CurrentColumnList instance = CurrentColumnList._();
 
   addColumn(ColumnModel model) {
-    final List<ColumnModel> updatedList =
-        List.from(lastUpdate ?? List.empty());
+    final List<ColumnModel> updatedList = List.from(lastUpdate ?? List.empty());
     updatedList.add(model);
     return update(updatedList);
   }
